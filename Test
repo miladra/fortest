@@ -30,4 +30,17 @@ public class AccessControlTest {
         String accessTimeFrom = "08:00:00";
         String accessTimeTo = "16:00:00";
         Instant now = Instant.parse("2023-04-15T12:00:00.000Z");
-        boolean result = ac
+        boolean
+        
+        
+        
+        import static org.mockito.Mockito.*;
+
+Instant fixedInstant = Instant.parse("2022-01-01T00:00:00Z");
+
+// Mock the Instant.now() method
+Clock clock = mock(Clock.class);
+when(clock.instant()).thenReturn(fixedInstant);
+
+// Use the mocked clock in your code
+Instant currentInstant = Instant.now(clock);
