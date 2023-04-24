@@ -1,46 +1,39 @@
+import javax.persistence.*;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+@Entity
+@Table(name = "customer_picture")
+public class CustomerPicture {
 
-import java.time.Instant;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeParseException;
+    @Id
+    @Column(name = "customer_number", nullable = false)
+    private String customerNumber;
 
-public class AccessControlTest {
+    @Column(name = "branch_code")
+    private String branchCode;
+
+    @Column(name = "branch_id")
+    private Long branchId;
+
+    @Column(name = "customer_id")
+    private Long customerId;
+
+    @Column(name = "etl_date")
+    private String etlDate;
+
+    @Column(name = "idendocs_id")
+    private Long idendocsId;
+
+    @Column(name = "idendocs_imageid")
+    private Long idendocsImageid;
+
+    @Column(name = "idendocs_type_id")
+    private String idendocsTypeId;
+
+    @Column(name = "idendocs_type_title")
+    private String idendocsTypeTitle;
+
+    @Column(name = "image_indry", columnDefinition = "BLOB")
+    private byte[] imageIndry;
     
-    @Test
-    public void testAccessAllowed() {
-        AccessControl ac = new AccessControl();
-        ZonedDateTime accessDateFrom = ZonedDateTime.parse("2023-04-01T00:00:00.000+00:00");
-        ZonedDateTime accessDateTo = ZonedDateTime.parse("2023-04-30T23:59:59.999+00:00");
-        String accessTimeFrom = "08:00:00";
-        String accessTimeTo = "16:00:00";
-        Instant now = Instant.parse("2023-04-15T12:00:00.000Z");
-        boolean result = ac.isAccessAllowed(accessDateFrom, accessDateTo, accessTimeFrom, accessTimeTo, now);
-        assertTrue(result);
-    }
-    
-    @Test
-    public void testAccessDeniedDateRange() {
-        AccessControl ac = new AccessControl();
-        ZonedDateTime accessDateFrom = ZonedDateTime.parse("2023-04-01T00:00:00.000+00:00");
-        ZonedDateTime accessDateTo = ZonedDateTime.parse("2023-04-10T23:59:59.999+00:00");
-        String accessTimeFrom = "08:00:00";
-        String accessTimeTo = "16:00:00";
-        Instant now = Instant.parse("2023-04-15T12:00:00.000Z");
-        boolean
-        
-        
-        
-        import static org.mockito.Mockito.*;
-
-Instant fixedInstant = Instant.parse("2022-01-01T00:00:00Z");
-
-// Mock the Instant.now() method
-Clock clock = mock(Clock.class);
-when(clock.instant()).thenReturn(fixedInstant);
-
-// Use the mocked clock in your code
-Instant currentInstant = Instant.now(clock);
+    // constructors, getters and setters
+}
