@@ -1,1 +1,103 @@
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "t_account")
+public class Account {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "c_accountgroup")
+    private Long accountGroup;
+
+    @Column(name = "c_accountnumber")
+    private String accountNumber;
+
+    @Column(name = "c_accounttitle")
+    private String accountTitle;
+
+    @Column(name = "c_accounttype")
+    private Long accountType;
+
+    @Column(name = "c_active")
+    private Integer active;
+
+    @Column(name = "c_amount")
+    private Double amount;
+
+    @Column(name = "c_basecurrencyamount")
+    private Double baseCurrencyAmount;
+
+    @Column(name = "c_basecurrencydebtoramount")
+    private Double baseCurrencyDebtorAmount;
+
+    @Column(name = "c_branch")
+    private Long branch;
+
+    @Column(name = "c_branchfield_")
+    private Long branchField;
+
+    @Column(name = "c_creditoramount")
+    private Double creditorAmount;
+
+    @Column(name = "c_creditorcirculationcount")
+    private Long creditorCirculationCount;
+
+    @Column(name = "c_currency")
+    private Long currency;
+
+    @Column(name = "c_currencyaccount")
+    private Integer currencyAccount;
+
+    @Column(name = "c_debtoramount")
+    private Double debtorAmount;
+
+    @Column(name = "c_debtorcirculationcount")
+    private Long debtorCirculationCount;
+
+    @Column(name = "c_enable")
+    private Integer enable;
+
+    @Column(name = "c_lastbuilddatetime")
+    private String lastBuildDateTime;
+
+    @Column(name = "c_lastsettledatetime")
+    private String lastSettleDateTime;
+
+    @Column(name = "c_manualid")
+    private String manualId;
+
+    @Column(name = "c_maxamount")
+    private Double maxAmount;
+
+    @Column(name = "c_minamount")
+    private Double minAmount;
+
+    @Column(name = "c_openingdate")
+    private String openingDate;
+
+    @Column(name = "c_oppositeaccount")
+    private Long oppositeAccount;
+
+    @Column(name = "c_securrencycreditoramount")
+    private Double seCurrencyCreditorAmount;
+
+    @Column(name = "c_serial")
+    private Long serial;
+
+    @Column(name = "c_status")
+    private Long status;
+
+    @Column(name = "c_version")
+    private Long version;
+
+    @Column(name = "etl_date")
+    private String etlDate;
+
+    @Column(name = "rowindex")
+    private String rowIndex;
+
+    // getters and setters
+}
