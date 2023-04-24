@@ -1,103 +1,148 @@
-
-import javax.persistence.*;
+import com.datastax.driver.mapping.annotations.*;
 
 @Entity
-@Table(name = "t_account")
-public class Account {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "c_accountgroup")
-    private Long accountGroup;
-
-    @Column(name = "c_accountnumber")
-    private String accountNumber;
-
-    @Column(name = "c_accounttitle")
-    private String accountTitle;
-
-    @Column(name = "c_accounttype")
-    private Long accountType;
-
+@Table(name = "t_accounttypeitem")
+public class AccountTypeItem {
+    
+    @PartitionKey
+    private BigDecimal id;
+    
+    @Column(name = "c_acccredcirccn")
+    private BigDecimal accCreditCircCN;
+    
+    @Column(name = "c_accdebtcirccn")
+    private BigDecimal accDebtCircCN;
+    
+    @Column(name = "c_accnextam")
+    private BigDecimal accNextAm;
+    
+    @Column(name = "c_accountid")
+    private BigDecimal accountId;
+    
+    @Column(name = "c_accounttypeid")
+    private BigDecimal accountTypeId;
+    
+    @Column(name = "c_accprevam")
+    private BigDecimal accPrevAm;
+    
+    @Column(name = "c_accttcredam")
+    private BigDecimal accTtCredAm;
+    
+    @Column(name = "c_accttdebtam")
+    private BigDecimal accTtDebtAm;
+    
     @Column(name = "c_active")
-    private Integer active;
-
+    private BigDecimal active;
+    
     @Column(name = "c_amount")
-    private Double amount;
-
-    @Column(name = "c_basecurrencyamount")
-    private Double baseCurrencyAmount;
-
-    @Column(name = "c_basecurrencydebtoramount")
-    private Double baseCurrencyDebtorAmount;
-
-    @Column(name = "c_branch")
-    private Long branch;
-
-    @Column(name = "c_branchfield_")
-    private Long branchField;
-
-    @Column(name = "c_creditoramount")
-    private Double creditorAmount;
-
+    private BigDecimal amount;
+    
+    @Column(name = "c_blockingitem")
+    private BigDecimal blockingItem;
+    
+    @Column(name = "c_branchid")
+    private BigDecimal branchId;
+    
+    @Column(name = "c_comment")
+    private String comment;
+    
     @Column(name = "c_creditorcirculationcount")
-    private Long creditorCirculationCount;
-
-    @Column(name = "c_currency")
-    private Long currency;
-
-    @Column(name = "c_currencyaccount")
-    private Integer currencyAccount;
-
-    @Column(name = "c_debtoramount")
-    private Double debtorAmount;
-
+    private BigDecimal creditorCirculationCount;
+    
+    @Column(name = "c_currencyid")
+    private BigDecimal currencyId;
+    
+    @Column(name = "c_debtor")
+    private BigDecimal debtor;
+    
     @Column(name = "c_debtorcirculationcount")
-    private Long debtorCirculationCount;
-
+    private BigDecimal debtorCirculationCount;
+    
+    @Column(name = "c_document")
+    private BigDecimal document;
+    
+    @Column(name = "c_documentid")
+    private BigDecimal documentId;
+    
+    @Column(name = "c_documentitem")
+    private BigDecimal documentItem;
+    
+    @Column(name = "c_documentitemid")
+    private BigDecimal documentItemId;
+    
     @Column(name = "c_enable")
-    private Integer enable;
-
-    @Column(name = "c_lastbuilddatetime")
-    private String lastBuildDateTime;
-
-    @Column(name = "c_lastsettledatetime")
-    private String lastSettleDateTime;
-
+    private BigDecimal enable;
+    
+    @Column(name = "c_eqam")
+    private BigDecimal eqAm;
+    
+    @Column(name = "c_eqatiid")
+    private BigDecimal eqAtiId;
+    
+    @Column(name = "c_eqcredcircn")
+    private BigDecimal eqCredCircN;
+    
+    @Column(name = "c_eqdebtcircn")
+    private BigDecimal eqDebtCircN;
+    
+    @Column(name = "c_eqdocitemid")
+    private BigDecimal eqDocItemId;
+    
+    @Column(name = "c_eqttam")
+    private BigDecimal eqTtAm;
+    
+    @Column(name = "c_eqttcredam")
+    private BigDecimal eqTtCredAm;
+    
+    @Column(name = "c_eqttdebtam")
+    private BigDecimal eqTtDebtAm;
+    
+    @Column(name = "c_indicator")
+    private BigDecimal indicator;
+    
+    @Column(name = "c_issuanceid")
+    private String issuanceId;
+    
+    @Column(name = "c_lateitem")
+    private BigDecimal lateItem;
+    
     @Column(name = "c_manualid")
     private String manualId;
-
-    @Column(name = "c_maxamount")
-    private Double maxAmount;
-
-    @Column(name = "c_minamount")
-    private Double minAmount;
-
-    @Column(name = "c_openingdate")
-    private String openingDate;
-
-    @Column(name = "c_oppositeaccount")
-    private Long oppositeAccount;
-
-    @Column(name = "c_securrencycreditoramount")
-    private Double seCurrencyCreditorAmount;
-
-    @Column(name = "c_serial")
-    private Long serial;
-
-    @Column(name = "c_status")
-    private Long status;
-
+    
+    @Column(name = "c_oppositedocumentitem")
+    private BigDecimal oppositeDocumentItem;
+    
+    @Column(name = "c_relatedbranch")
+    private BigDecimal relatedBranch;
+    
+    @Column(name = "c_row")
+    private BigDecimal row;
+    
+    @Column(name = "c_totalamount")
+    private BigDecimal totalAmount;
+    
+    @Column(name = "c_totalcreditoramount")
+    private BigDecimal totalCreditorAmount;
+    
+    @Column(name = "c_totaldebtoramount")
+    private BigDecimal totalDebtorAmount;
+    
     @Column(name = "c_version")
-    private Long version;
-
-    @Column(name = "etl_date")
-    private String etlDate;
-
-    @Column(name = "rowindex")
-    private String rowIndex;
-
-    // getters and setters
-}
+    private BigDecimal version;
+    
+    @SecondaryIndex
+    @Column(name = "i_document")
+    private BigDecimal iDocument;
+    
+    // constructors, getters and setters
+    
+    public AccountTypeItem() {}
+    
+    public AccountTypeItem(BigDecimal id, BigDecimal accCreditCircCN, BigDecimal accDebtCircCN, 
+                           BigDecimal accNextAm, BigDecimal accountId, BigDecimal accountTypeId,
+                           BigDecimal accPrevAm, BigDecimal accTtCredAm, BigDecimal accTtDebtAm,
+                           BigDecimal active, BigDecimal amount, BigDecimal blockingItem, 
+                           BigDecimal branchId, String comment, BigDecimal creditorCirculationCount, 
+                           BigDecimal currencyId, BigDecimal debtor, BigDecimal debtorCirculationCount,
+                           BigDecimal document, BigDecimal documentId, BigDecimal documentItem,
+                           BigDecimal documentItemId, BigDecimal enable, BigDecimal eqAm,
