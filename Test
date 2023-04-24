@@ -1,44 +1,35 @@
+import javax.persistence.*;
+
 @Entity
-@Table(name = "deposit")
-public class Deposit {
+@Table(name = "deposit_customer_relation")
+@IdClass(DepositCustomerRelationId.class)
+public class DepositCustomerRelation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "customer_number")
+    private Long customerNumber;
 
-    @Column(name = "main_customer_number")
-    private String mainCustomerNumber;
-
+    @Id
     @Column(name = "deposit_number")
     private String depositNumber;
-
-    @Column(name = "branch_code")
-    private String branchCode;
 
     @Column(name = "branch_id")
     private Long branchId;
 
-    @Column(name = "currency_id")
-    private Long currencyId;
-
-    @Column(name = "deposit_status_id")
-    private Long depositStatusId;
-
-    @Column(name = "deposit_status_name")
-    private String depositStatusName;
-
-    @Column(name = "deposit_type_name")
-    private String depositTypeName;
-
     @Column(name = "etl_date")
     private String etlDate;
 
-    @Column(name = "expire_date")
-    private String expireDate;
+    @Column(name = "id")
+    private Long id;
 
-    @Column(name = "min_amount")
-    private String minAmount;
+    @Column(name = "portion")
+    private String portion;
 
-    // constructors, getters and setters, toString, etc.
-    
+    @Column(name = "type_id")
+    private String typeId;
+
+    @Column(name = "type_name")
+    private String typeName;
+
+    // getters and setters
 }
